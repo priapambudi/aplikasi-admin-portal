@@ -70,8 +70,8 @@ const StoreSwitcher = ({ className, items = [] }: StoreSwitcherProps) => {
       <PopoverContent className="bg-white w-[200px] p-0">
         <Command>
           <CommandList>
-            <CommandInput placeholder="Cari Toko" />
-            <CommandEmpty>Toko Tidak Ditemukan</CommandEmpty>
+            <CommandInput placeholder="Cari Layanan" />
+            <CommandEmpty>Layanan Tidak Ditemukan</CommandEmpty>
             <CommandGroup heading="Toko">
               {formattedItems.map((store) => (
                 <CommandItem
@@ -104,7 +104,7 @@ const StoreSwitcher = ({ className, items = [] }: StoreSwitcherProps) => {
                 className="cursor-pointer"
               >
                 <PlusCircle className="mr-2 h-5 w-5" />
-                Buat Toko
+                Tambah Layanan
               </CommandItem>
             </CommandGroup>
           </CommandList>

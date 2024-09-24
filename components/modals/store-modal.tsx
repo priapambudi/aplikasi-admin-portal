@@ -39,10 +39,10 @@ export const StoreModal = () => {
       setLoading(true);
       const response = await axios.post("/api/stores", values);
       console.log(response.data);
-      toast.success("Toko Berhasil Dibuat");
+      toast.success("Layanan baru berhasil dibuat");
       window.location.assign(`/${response.data.id}`);
     } catch (error) {
-      toast.error("Gagal Membuat Toko");
+      toast.error("Gagal membuat layanan baru");
     } finally {
       setLoading(false);
     }
@@ -50,7 +50,7 @@ export const StoreModal = () => {
   return (
     <Modal
       title="Buat Store"
-      description="Tambahkan store untuk membuat produk dan kategori"
+      description="Tambahkan layanan yang diinginkan"
       isOpen={storeModal.isOpen}
       onClose={storeModal.onClose}
     >
@@ -66,12 +66,12 @@ export const StoreModal = () => {
                     <FormLabel>Name</FormLabel>{" "}
                     <FormControl>
                       <Input
-                        placeholder="Nama Toko"
+                        placeholder="Nama Layanan"
                         {...field}
                         disabled={loading}
                       />
                     </FormControl>
-                    <FormMessage />
+                    <FormMessage className="text-red-400" />
                   </FormItem>
                 )}
               />
@@ -80,10 +80,15 @@ export const StoreModal = () => {
                   disabled={loading}
                   variant="outline"
                   onClick={storeModal.onClose}
+                  className="rounded-xl bg-slate-50 hover:bg-slate-100"
                 >
                   Cancel
                 </Button>
-                <Button disabled={loading} type="submit">
+                <Button
+                  disabled={loading}
+                  type="submit"
+                  className="rounded-xl bg-black hover:bg-black/70 text-white"
+                >
                   Continue
                 </Button>
               </div>
